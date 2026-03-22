@@ -10,7 +10,7 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     background: #ffffff;
-    color: #000000;
+    color: #000;
 }
 
 header {
@@ -29,7 +29,7 @@ header {
     width: 300px;
     border-right: 1px solid #000;
     overflow-y: auto;
-    background: #f8f8f8;
+    background: #f5f5f5;
 }
 
 .file {
@@ -45,7 +45,7 @@ header {
 
 .viewer {
     flex: 1;
-    background: #ffffff;
+    background: #fff;
 }
 
 iframe {
@@ -71,10 +71,9 @@ iframe {
 <div class="file" onclick="openPDF('Hedge Fund Exam_Sample Question & Answer.pdf')">HF Sample Q&A 1</div>
 <div class="file" onclick="openPDF('Hedge Fund Exam_Sample Question & Answer_2.pdf')">HF Sample Q&A 2</div>
 
-<!-- DOCX FILES (FIXED) -->
-<div class="file" onclick="openDOCX('Hedge Fund_Final Exam Review.docx')">HF Review 1</div>
-<div class="file" onclick="openDOCX('Hedge Fund_Final Exam Review_2.docx')">HF Review 2</div>
-<div class="file" onclick="openDOCX('Hedge Fund_Final Exam Review_3.docx')">HF Review 3</div>
+<div class="file" onclick="openPDF('Hedge Fund_Final Exam Review.pdf')">HF Review 1</div>
+<div class="file" onclick="openPDF('Hedge Fund_Final Exam Review_2.pdf')">HF Review 2</div>
+<div class="file" onclick="openPDF('Hedge Fund_Final Exam Review_3.pdf')">HF Review 3</div>
 
 <div class="file" onclick="openPDF('LIM-IndirectIncentivesHedge-2016.pdf')">LIM 2016</div>
 <div class="file" onclick="openPDF('Summary_Naik_Lecture_V2.pdf')">Naik Summary</div>
@@ -89,21 +88,12 @@ iframe {
 </div>
 
 <script>
-
-// PDF VIEWER
 function openPDF(file) {
-    document.getElementById("viewer").innerHTML =
-        `<iframe src="${file}#toolbar=0"></iframe>`;
-}
-
-// DOCX VIEWER (KEY FIX)
-function openDOCX(file) {
     const url = window.location.origin + window.location.pathname + file;
 
     document.getElementById("viewer").innerHTML =
-        `<iframe src="https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(url)}"></iframe>`;
+        `<iframe src="https://docs.google.com/gview?url=${encodeURIComponent(url)}&embedded=true"></iframe>`;
 }
-
 </script>
 
 </body>
