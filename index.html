@@ -1,99 +1,94 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Finance Notes</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>hellomarch - File Viewer</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial;
-      display: flex;
-      height: 100vh;
-    }
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #000;
+    color: #fff;
+}
 
-    .sidebar {
-      width: 300px;
-      background: #1a2a44;
-      color: white;
-      padding: 20px;
-      overflow-y: auto;
-    }
+header {
+    text-align: center;
+    padding: 20px;
+    border-bottom: 1px solid #fff;
+    font-size: 22px;
+}
 
-    .sidebar h2 {
-      margin-top: 20px;
-      font-size: 18px;
-      border-bottom: 1px solid #ccc;
-      padding-bottom: 5px;
-    }
+.container {
+    display: flex;
+    height: calc(100vh - 70px);
+}
 
-    .sidebar a {
-      display: block;
-      color: #ddd;
-      text-decoration: none;
-      margin: 5px 0;
-      cursor: pointer;
-    }
+.sidebar {
+    width: 300px;
+    border-right: 1px solid #fff;
+    overflow-y: auto;
+}
 
-    .sidebar a:hover {
-      color: white;
-    }
+.file {
+    padding: 12px;
+    border-bottom: 1px solid #333;
+    cursor: pointer;
+}
 
-    .viewer {
-      flex: 1;
-      background: #f5f7fa;
-    }
+.file:hover {
+    background: #fff;
+    color: #000;
+}
 
-    iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-  </style>
+.viewer {
+    flex: 1;
+    background: #111;
+}
 
-  <script>
-    function openPDF(file) {
-      document.getElementById("viewer").src = file;
-    }
-  </script>
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+</style>
 </head>
 
 <body>
 
+<header>HELLOMARCH FILE VIEWER</header>
+
+<div class="container">
+
 <div class="sidebar">
 
-  <h2>Mergers</h2>
-  <a onclick="openPDF('Yannelis_Mergers_S01A.pdf')">S01A</a>
-  <a onclick="openPDF('Yannelis_Mergers_S01B.pdf')">S01B</a>
-  <a onclick="openPDF('Yannelis_Mergers_S02.pdf')">S02</a>
-  <a onclick="openPDF('Yannelis_Mergers_S03.pdf')">S03</a>
-  <a onclick="openPDF('4.Yannelis_Mergers_S04.pdf')">S04</a>
-
-  <h2>Valuation</h2>
-  <a onclick="openPDF('Yannelis_Valuation review_S01C (1).pdf')">Valuation Notes</a>
-  <a onclick="openPDF('Week9_ValuationProblems_March 13_2026.pdf')">Valuation Problems</a>
-  <a onclick="openPDF('10.Class10_ConglomerateValuation_Notes_vcf.pdf')">Conglomerate Notes</a>
-
-  <h2>LBO / PE</h2>
-  <a onclick="openPDF('9.Week9_LBOs and PE Transactions.pdf')">Week 9 LBO</a>
-
-  <h2>Other Materials</h2>
-  <a onclick="openPDF('10.Week10_Session2_Conglomerate.pdf')">Week 10</a>
-  <a onclick="openPDF('6.Yannelis_FinDistress_S06.pdf')">Financial Distress</a>
-  <a onclick="openPDF('7.WEEK7_S1 Landscape of Ownership.pdf')">Ownership</a>
-  <a onclick="openPDF('8.Week8_Activism_v8.pdf')">Activism</a>
-  <a onclick="openPDF('5.Raza_LBS Talk_Feb-2026.pdf')">LBS Talk</a>
-
-  <h2>Exam</h2>
-  <a onclick="openPDF('Sample Exam Review_KC input- Mar 2026_vF.pdf')">Exam Review</a>
-
-  <h2>Extra</h2>
-  <a onclick="openPDF('Yannelis_Review.pdf')">Review PDF</a>
+<div class="file" onclick="openPDF('2025.Q4-HFR-GIR_FINAL.pdf')">2025.Q4-HFR-GIR_FINAL</div>
+<div class="file" onclick="openPDF('Core Satellite Clones comments-1.pdf')">Core Satellite Clones</div>
+<div class="file" onclick="openPDF('HF_Fung & Hsieh (1999).pdf')">HF Fung & Hsieh</div>
+<div class="file" onclick="openPDF('Hedge Fund Exam_Sample Question & Answer.pdf')">HF Sample Q&A 1</div>
+<div class="file" onclick="openPDF('Hedge Fund Exam_Sample Question & Answer_2.pdf')">HF Sample Q&A 2</div>
+<div class="file" onclick="openPDF('Hedge Fund_Final Exam Review.docx')">HF Review 1</div>
+<div class="file" onclick="openPDF('Hedge Fund_Final Exam Review_2.docx')">HF Review 2</div>
+<div class="file" onclick="openPDF('Hedge Fund_Final Exam Review_3.docx')">HF Review 3</div>
+<div class="file" onclick="openPDF('LIM-IndirectIncentivesHedge-2016.pdf')">LIM 2016</div>
+<div class="file" onclick="openPDF('Summary_Naik_Lecture_V2.pdf')">Naik Summary</div>
+<div class="file" onclick="openPDF('YIN-OptimalSizeHedge-2016.pdf')">YIN 2016</div>
 
 </div>
 
-<div class="viewer">
-  <iframe id="viewer"></iframe>
+<div class="viewer" id="viewer">
+    <p style="padding:20px;">Click a file to preview</p>
 </div>
+
+</div>
+
+<script>
+function openPDF(file) {
+    document.getElementById("viewer").innerHTML =
+        `<iframe src="${file}#toolbar=0"></iframe>`;
+}
+</script>
 
 </body>
 </html>
