@@ -89,10 +89,11 @@ iframe {
 
 <script>
 function openPDF(file) {
-    const url = window.location.origin + window.location.pathname + file;
+    const base = "https://nightsoldier001.github.io/hellomarch/";
+    const fullURL = base + file;
 
     document.getElementById("viewer").innerHTML =
-        `<iframe src="https://docs.google.com/gview?url=${encodeURIComponent(url)}&embedded=true"></iframe>`;
+        `<iframe src="https://docs.google.com/gview?url=${encodeURIComponent(fullURL)}&embedded=true"></iframe>`;
 }
 </script>
 
