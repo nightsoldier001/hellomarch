@@ -36,7 +36,6 @@ header {
     padding: 12px;
     border-bottom: 1px solid #ddd;
     cursor: pointer;
-    color: #000;
 }
 
 .file:hover {
@@ -68,11 +67,15 @@ iframe {
 <div class="file" onclick="openPDF('2025.Q4-HFR-GIR_FINAL.pdf')">2025.Q4-HFR-GIR_FINAL</div>
 <div class="file" onclick="openPDF('Core Satellite Clones comments-1.pdf')">Core Satellite Clones</div>
 <div class="file" onclick="openPDF('HF_Fung & Hsieh (1999).pdf')">HF Fung & Hsieh</div>
+
 <div class="file" onclick="openPDF('Hedge Fund Exam_Sample Question & Answer.pdf')">HF Sample Q&A 1</div>
 <div class="file" onclick="openPDF('Hedge Fund Exam_Sample Question & Answer_2.pdf')">HF Sample Q&A 2</div>
-<div class="file" onclick="openPDF('Hedge Fund_Final Exam Review.docx')">HF Review 1</div>
-<div class="file" onclick="openPDF('Hedge Fund_Final Exam Review_2.docx')">HF Review 2</div>
-<div class="file" onclick="openPDF('Hedge Fund_Final Exam Review_3.docx')">HF Review 3</div>
+
+<!-- DOCX FILES (FIXED) -->
+<div class="file" onclick="openDOCX('Hedge Fund_Final Exam Review.docx')">HF Review 1</div>
+<div class="file" onclick="openDOCX('Hedge Fund_Final Exam Review_2.docx')">HF Review 2</div>
+<div class="file" onclick="openDOCX('Hedge Fund_Final Exam Review_3.docx')">HF Review 3</div>
+
 <div class="file" onclick="openPDF('LIM-IndirectIncentivesHedge-2016.pdf')">LIM 2016</div>
 <div class="file" onclick="openPDF('Summary_Naik_Lecture_V2.pdf')">Naik Summary</div>
 <div class="file" onclick="openPDF('YIN-OptimalSizeHedge-2016.pdf')">YIN 2016</div>
@@ -86,10 +89,21 @@ iframe {
 </div>
 
 <script>
+
+// PDF VIEWER
 function openPDF(file) {
     document.getElementById("viewer").innerHTML =
         `<iframe src="${file}#toolbar=0"></iframe>`;
 }
+
+// DOCX VIEWER (KEY FIX)
+function openDOCX(file) {
+    const url = window.location.origin + window.location.pathname + file;
+
+    document.getElementById("viewer").innerHTML =
+        `<iframe src="https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(url)}"></iframe>`;
+}
+
 </script>
 
 </body>
